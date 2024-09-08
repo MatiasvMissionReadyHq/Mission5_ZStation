@@ -1,0 +1,21 @@
+services:
+  backend:
+    build: ./backend
+    container_name: Misson5-ZStation-Backend
+    ports:
+      - '4000:4000'
+    env_file:
+      - ./backend/.env
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+  frontend:
+      build:
+        context: ./frontend
+        dockerfile: ./Dockerfile
+      container_name: Misson5-ZStation-Frontend
+      environment:
+        NODE_ENV: production
+      ports:
+        - '5173:5173'
+ 
