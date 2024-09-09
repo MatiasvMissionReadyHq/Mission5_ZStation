@@ -1,5 +1,24 @@
+import Hero from './Hero/Hero'
+import Filter from '../Common/Filter/Filter'
+import { useState } from 'react'
+
+
 export default function FindStation(){
+    const [passBackLocationFromHero, setPassBackLocationFromHero] = useState("")
+    const [passBackFilterFromFilter, setPassBackFilterFromFilter] = useState([])
+
+    function handleDataFromHero(childData){
+        setPassBackLocationFromHero(childData)
+    }
+
+    function handleDataFromFilter(childData){
+        setPassBackFilterFromFilter(childData)
+    }
+
     return(
-        <div>Find Station</div>
+        <div>
+            <Hero sendDataToStation={handleDataFromHero}/>
+            <Filter sendDataToStation={handleDataFromFilter} page={"Find A Station"}/>
+        </div>
     )
 }

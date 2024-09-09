@@ -1,0 +1,108 @@
+.heroContainer{
+    width:100%;
+    height:30vh;
+    background: 
+        url("./zStationLogo.png"),
+        linear-gradient(to right, #F06517 0%, #FD9935 51%, #FFBF16 100%);
+    background-size: 71vw 68.9vh, cover;
+    background-repeat: no-repeat, no-repeat;
+    background-position: bottom right, top left;
+    z-index: 0;
+    position:relative;
+}
+
+
+.leftSection{
+    position:relative;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap:2vh;
+    padding-top:2vw;
+    padding-left:10%;
+}
+
+
+.bthContainer{
+    position: relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+}
+
+
+.heroBtn{
+    font-weight: bold;
+    border:transparent;
+    border-radius: 5px;
+    padding: 1vh 1.5vw;
+    background-color: #ED560E;
+    color:white;
+    box-shadow: 0 3px 3px 0 rgb(136, 115, 106);
+    cursor:pointer;
+    &:active{
+        box-shadow: 0 0 3px 0 rgb(136, 115, 106);
+    }
+}
+
+
+.activeHeroBtn{
+    font-weight: bold;
+    border:transparent;
+    border-radius: 5px;
+    padding: 1vh 1.5vw;
+    box-shadow: inset 1px 1px 1px 1px rgb(136, 115, 106);
+    background-color: white;
+    color: #ED560E;
+}
+
+
+.inputField{
+    width:55%;
+    height:6vh;
+    position:relative;
+}
+
+
+.userInput{
+    width:100%;
+    height:100%;
+    border:1px solid grey;
+    border-radius: 2px;
+    padding-left:1vw;
+}
+
+
+.submitBtn{
+    position:absolute;
+    right: 1vw;
+    top:1.5vh;
+    border: transparent;
+    background: none;
+    cursor: pointer;
+}
+
+
+.searchIcon{
+    width:auto;
+    height:2.5vh;
+}
+
+
+.currentLocationLink{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: underline;
+}
+
+
+.crosshair{
+    padding-top:0.5vh;
+    padding-right:0.2vw;
+    width:auto;
+    height:2vh;
+}
