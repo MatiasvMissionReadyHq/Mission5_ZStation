@@ -51,6 +51,11 @@
     padding: 1vh 1.5vw;
     white-space: nowrap;
     display: inline-block;
+    box-shadow: 0 3px 3px 0 rgb(136, 115, 106);
+    cursor:pointer;
+    &:active{
+        box-shadow: 0 0 3px 0 rgb(136, 115, 106);
+    }
 }
 
 
