@@ -1,0 +1,92 @@
+.headBarContainer{
+    width:100vw;
+    height:12vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.leftSection{
+    position: relative;
+    width:65vw;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:5.5vw;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+.stationIcon{
+    width:auto;
+    height:10vh;
+}
+
+
+.downVectorIcon{
+    width:0.7rem;
+    height:0.49rem;
+}
+
+
+.rightSection{
+    position:relative;
+    width:35vw;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:2vw;
+    padding-left: 5vw;
+}
+
+
+.stationBtn{
+    background-color:rgba(237, 86, 14, 1);
+    color:white;
+    font-weight: bold;
+    border:transparent;
+    border-radius: 5px;
+    padding: 1vh 1.5vw;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+
+.headBarInput{
+    position:relative;
+    border:transparent;
+    border-radius: 15px;
+    box-shadow: inset 0 0 5px 0;
+    padding: 1vh 0.5vw;
+    font-weight: bold;
+}
+
+
+.inputField{
+    position:relative;
+    width:100%;
+}
+
+
+input::placeholder{
+    font-weight: bold;
+    padding-left:0.5vw;
+}
+
+
+.submitBtn{
+    border:transparent;
+    position:absolute;
+    right: 7.7vw;
+    top:1.1vh;
+    background: none;
+    cursor:pointer
+}
+
+
+.searchIcon{
+    width:auto;
+    height:2vh;
+}
