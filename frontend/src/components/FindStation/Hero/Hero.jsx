@@ -58,20 +58,8 @@ export default function Hero({ sendDataToStation }){
                 </div>
                 
                 <div className={style.currentLocationLink}>
-                    <p><img src="./crosshair.png" alt="Crosshair" />Use my current location</p>
+                    <p><img className={style.crosshair} src="./crosshair.png" alt="Crosshair" />Use my current location</p>
                 </div>
-            </div>
-            
-            <div className={style.rightSection}>
-                <img className={style.logoImage} src="./zLogoEighthLeft.png" alt="Z Logo" />
-                <img className={style.logoImage} src="./zLogoSeventhLeft.png" alt="Z Logo" />
-                <img className={style.logoImage} src="./zLogoSixthLeft.png" alt="Z Logo" />
-                <img className={style.logoImage} src="./zLogoFifthLeft.png" alt="Z Logo" />
-                <img className={style.logoImage} src="./zLogoForthLeft.png" alt="Z Logo" />
-                <img className={style.logoImage} src="./zLogoThirdLeft.png" alt="Z Logo" />
-                <img className={style.logoImage} src="./zLogoSecondLeft.png" alt="Z Logo" />
-                <img className={style.logoImage} src="./zLogoFirstLeft.png" alt="Z Logo" />
-                <img className={style.logoImage} src="./zLogoMain.png" alt="Z Logo" />
             </div>
         </div>
     )
