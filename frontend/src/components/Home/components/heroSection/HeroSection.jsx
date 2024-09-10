@@ -4,7 +4,7 @@ const HeroSection = () => {
     return (
         //Hero Section
         <section className={styles["hero-section"]}>
-            <img src='./group22.jpg' alt="Z Petrol Station" className={styles["hero-image"]}/>
+            <img src='./Z-Energy.png' alt="Z Petrol Station" className={styles["hero-image"]}/>
         </section>
     );
 }
