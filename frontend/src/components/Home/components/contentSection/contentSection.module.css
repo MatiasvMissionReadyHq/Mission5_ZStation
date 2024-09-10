@@ -1,0 +1,42 @@
+.content-section {
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-around;
+    gap: 5%;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    line-height: 30px;
+    color: #000000;
+    background-color: #efefef;
+}
+
+.content-section .content-text {
+    padding-left: 10%;
+    flex: 1;
+}
+
+.content-text h2 {
+    /* font-family: 'Inter', sans-serif; */
+    color: #ED560E;
+    margin-bottom: 30px;
+    font-size: 40px;
+}
+.content-section .content-map {
+    flex: 1;
+    height: 200px;
+    max-width: 40%;
+    margin-right: 5%;
+    height: auto;
+}
+
+
+.btn-image {
+    max-width: 150px; /* Ajusta el tamaño de las imágenes de los botones */
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}  
+.btn-image:hover {
+  transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+}
