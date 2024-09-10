@@ -26,6 +26,17 @@ export default function Filter({sendDataToStation, page}){
         setSelectedFuelType(e.target.value)
     }
 
+    function handleDataBackToStation(){
+        sendDataToStation([selectedService, selectedStationType, selectedFuelType])
+    }
+
+    function clearFilter(){
+        setSelectedService("Select a service or services")
+        setSelectedStationType("Select Station Type")
+        setSelectedFuelType("Select Fuel Type")
+    }
+
+
     return(
         <div className={style.filterContainer}>
             <div className={style.pageNavigation}>
@@ -76,8 +87,8 @@ export default function Filter({sendDataToStation, page}){
                 </div>
 
                 <div className={style.btnContainer}>
-                    <button className={style.filterBtn}>Apply Filters</button>
-                    <button className={style.clearBtn}>Clear Filters</button>
+                    <button className={style.filterBtn} onClick={handleDataBackToStation}>Apply Filters</button>
+                    <button className={style.clearBtn} onClick={clearFilter}>Clear Filters</button>
                 </div> 
             </div>
 
