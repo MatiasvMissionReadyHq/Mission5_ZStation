@@ -12,6 +12,8 @@ export default function Location(){
     const [serviceOpen, setServiceOpen] = useState(new Set([0]))
     const [storeOpen, setStoreOpen] = useState(new Set([0]))
 
+    const priceOrder = ["Lowest Price", "Highest Price"]
+
     function handleServiceOpen(index){
         const updatedServiceOpen = new Set(serviceOpen)
         if(updatedServiceOpen.has(index)){
@@ -56,10 +58,19 @@ export default function Location(){
 
     return(
         <div className={style.locationContainer}>
-            <select>
+            <select className={style.sortPrice}>
                 <option>Sort prices ..</option>
-                <option></option>
+                {
+                    priceOrder.map((order, index) => {
+                        return(
+                            <option key={index} value={order}>
+                                {order}
+                            </option>
+                        ) 
+                    })
+                }
             </select>
+
             {
                 data.map((store, index) => (
                     <div className={style.locationCard} key={index}>    

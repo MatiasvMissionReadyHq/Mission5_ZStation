@@ -1,9 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 .locationContainer{
-    width:40vw;
+    width:40%;
+    height:90vh;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar{
+        width:12px;
+    }
+
+    &::-webkit-scrollbar-track{
+        border-radius: 15px;
+        background-color: #F1F1F1;
+        box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+    }
+
+    &::-webkit-scrollbar-thumb{
+        height:11.5vh;
+        background-color: #ED560E;
+        border:2px solid transparent;
+        background-clip: padding-box;
+        border-radius: 15px;
+    }
+}
+
+
+.sortPrice{
+    width:9vw;
+    height:5vh;
+    position: absolute;
+    left:28vw;
+    border-radius: 5px;
+    padding-left:0.5vw;
+    box-sizing:border-box;
+}
+
+
+.priceOrder{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
