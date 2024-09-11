@@ -1,5 +1,6 @@
 import Hero from './Hero/Hero'
 import Filter from '../Common/Filter/Filter'
+import Location from './Location/Location'
 import { useState } from 'react'
 
 
@@ -19,6 +20,7 @@ export default function FindStation(){
         <div>
             <Hero sendDataToStation={handleDataFromHero}/>
             <Filter sendDataToStation={handleDataFromFilter} page={"Find A Station"}/>
+            <Location />
         </div>
     )
 }
