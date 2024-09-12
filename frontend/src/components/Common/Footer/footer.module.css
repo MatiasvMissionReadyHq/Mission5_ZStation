@@ -1,0 +1,40 @@
+footer {
+    background-color: #f4f4f4;
+    padding: 50px 0px 0px 15%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    text-align: justify;
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #8C8C8C;
+    
+
+}    
+
+.column h3 {
+    color: #ED560E;
+    margin-bottom: 40px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+footer .column {
+    flex: 1;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #ED560E;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 700;
+}
