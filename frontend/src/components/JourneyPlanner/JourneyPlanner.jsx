@@ -1,5 +1,13 @@
+import React from 'react';
+import MapComponent from './Googlemap/MapComponent';
+import Herobanner from './HeroBanner/Herobanner';
+
 export default function JourneyPlanner(){
-    return(
-        <div>Journey Planner</div>
-    )
-}
+    return (
+        <div>
+            <Herobanner />
+             {/* Other components */}
+            <MapComponent />
+        </div>
+    );
+};
