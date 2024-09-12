@@ -26,7 +26,7 @@ const MapComponent = () => {
             document.body.appendChild(script);
         };
 
-        loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyCd-3ctG7q9vz3q2RO1OHkS31unM7DajC8");
+        loadScript("https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places");
     }, []);
 
     return (
