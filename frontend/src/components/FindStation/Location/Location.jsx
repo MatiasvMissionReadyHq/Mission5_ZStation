@@ -58,7 +58,7 @@ export default function Location(){
 
     return(
         <div className={style.locationContainer}>
-            <select className={style.sortPrice}>
+            <select className={style.sortPrice} onChange={(e) => {}}>
                 <option>Sort prices ..</option>
                 {
                     priceOrder.map((order, index) => {

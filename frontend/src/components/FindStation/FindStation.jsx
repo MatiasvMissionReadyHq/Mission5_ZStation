@@ -1,6 +1,8 @@
 import Hero from './Hero/Hero'
 import Filter from '../Common/Filter/Filter'
 import Location from './Location/Location'
+import Map from './Map/Map'
+import style from './FindStation.module.css'
 import { useState } from 'react'
 
 
@@ -22,10 +24,13 @@ export default function FindStation(){
     }
 
     return(
-        <div>
+        <div className="findStationContainer">
             <Hero sendDataToStation={handleDataFromHero}/>
             <Filter sendDataToStation={handleDataFromFilter} page={"Find A Station"}/>
-            <Location sendDataToStation={handleDataFromLocation}/>
+            <div className={style.main}>
+                <Location sendDataToStation={handleDataFromLocation}/>
+                <Map getDataFromStation={passBackLocationAndFilterFromLocation}/>
+            </div>
         </div>
     )
 }

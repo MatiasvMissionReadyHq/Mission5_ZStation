@@ -38,13 +38,6 @@
 }
 
 
-.priceOrder{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
 .locationCard{
     padding-top:3vh;
     display:flex;
