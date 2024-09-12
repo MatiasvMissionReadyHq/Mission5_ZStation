@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Search } from 'lucide-react';
+import styles from './Herobanner.module.css';
 
 const HeroBanner = () => {
   const [startLocation, setStartLocation] = useState('');
@@ -47,42 +48,42 @@ const HeroBanner = () => {
   };
 
   return (
-    <div style={styles.heroBanner}>
-      <div style={styles.content}>
-        <h1 style={styles.title}>Plan Your Journey</h1>
-        <p style={styles.subtitle}>Find the best route from start to finish</p>
+    <div className={styles.heroBanner}>
+      <div className={styles.content}>
+        <h1 className={styles.title}>Plan Your Journey</h1>
+        <p className={styles.subtitle}>Find the best route from start to finish</p>
         
-        <form onSubmit={handleSearch} style={styles.form}>
-          <div style={styles.inputGroup}>
-            <Search size={20} style={styles.icon} />
+        <form onSubmit={handleSearch} className={styles.form}>
+          <div className={styles.inputGroup}>
+            <Search size={20} className={styles.icon} />
             <input
               id="start-location"
               type="text"
               placeholder="Enter starting location"
               value={startLocation}
               onChange={(e) => setStartLocation(e.target.value)}
-              style={styles.input}
+              className={styles.input}
             />
           </div>
           
-          <div style={styles.inputGroup}>
-            <Search size={20} style={styles.icon} />
+          <div className={styles.inputGroup}>
+            <Search size={20} className={styles.icon} />
             <input
               id="destination"
               type="text"
               placeholder="Enter destination"
               value={destination}
               onChange={(e) => setDestination(e.target.value)}
-              style={styles.input}
+              className={styles.input}
             />
           </div>
           
-          <button type="submit" style={styles.button}>
+          <button type="submit" className={styles.button}>
             Search
           </button>
         </form>
 
-        {error && <p style={styles.error}>{error}</p>}
+        {error && <p className={styles.error}>{error}</p>}
       </div>
     </div>
   );
