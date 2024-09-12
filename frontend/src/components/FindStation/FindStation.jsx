@@ -28,8 +28,8 @@ export default function FindStation(){
             <Hero sendDataToStation={handleDataFromHero}/>
             <Filter sendDataToStation={handleDataFromFilter} page={"Find A Station"}/>
             <div className={style.main}>
-                <Location sendDataToStation={handleDataFromLocation}/>
-                <Map getDataFromStation={passBackLocationAndFilterFromLocation}/>
+                <Location className={style.location} sendDataToStation={handleDataFromLocation}/>
+                <Map className={style.map} getDataFromStation={passBackLocationAndFilterFromLocation}/>
             </div>
         </div>
     )

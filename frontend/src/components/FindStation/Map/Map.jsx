@@ -2,8 +2,8 @@ import style from './Map.module.css'
 import GoogleMapReact from 'google-map-react'
 
 
-export default function Map(){
-    const apiKey = "AIzaSyAnj1Qo1B2pSFFL2nOeUlGUafRW0TnSw9c"
+export default function Map({getDataFromStation}){
+    const apiKey = process.env.REACT_APP_API_KEY
     return(
         <div className={style.mapContainer}>
             <GoogleMapReact
