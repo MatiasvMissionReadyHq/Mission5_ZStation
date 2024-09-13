@@ -2,7 +2,7 @@
     width:100%;
     height:30vh;
     background: 
-        url("./zStationLogo.png"),
+        url("/images/zStationLogo.png"),
         linear-gradient(to right, #F06517 0%, #FD9935 51%, #FFBF16 100%);
     background-size: 71vw 68.9vh, cover;
     background-repeat: no-repeat, no-repeat;
