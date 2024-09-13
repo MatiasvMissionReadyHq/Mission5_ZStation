@@ -1,11 +1,11 @@
 import { useQuery } from 'react-query'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons'
 import style from './Location.module.css'
 
 
-export default function Location(){
+export default function Location({ sendDataToStation }){
     const {data, isLoading, error } = useQuery("Location", getLocation)
     const [isOpen, setIsOpen] = useState(false)
     const [isServiceOpen, setIsServiceOpen] = useState(false)
@@ -13,6 +13,10 @@ export default function Location(){
     const [storeOpen, setStoreOpen] = useState(new Set([0]))
 
     const priceOrder = ["Lowest Price", "Highest Price"]
+
+    useEffect(() => {
+        sendDataToStation(data)
+    }, [data])
 
     function handleServiceOpen(index){
         const updatedServiceOpen = new Set(serviceOpen)
