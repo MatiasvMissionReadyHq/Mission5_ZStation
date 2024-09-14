@@ -1,0 +1,208 @@
+.fuel-main-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.station-info-container{
+
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.left-station-info{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    padding: 10px 50px 0px 50px;
+    margin-top: 30px;
+
+}
+
+.left-station-info h2{
+    font-size:70px;
+    font-weight: 800;
+    margin:20px 0px 20px 20px;
+    line-height: 116px;
+    color: #000000;
+}
+
+.right-station-info{
+    display: flex;
+    width: 55%;
+    margin-top: 30px;
+}
+
+.station-info-image{
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+.get-back-link{
+    color: #888888;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    cursor: pointer;
+    line-height: 16px;
+}
+
+
+.display-address-getDirection-container{
+
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.address-container{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-right: 20px;
+}
+
+.get-directionBtn-container{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.phone-number{
+    line-height: 16px;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.station-getDirections-image{
+    width: 180px;
+    height: auto;
+    margin-top: 10px;
+}
+
+.station-fuel-info{
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+    gap: 35px;
+}
+.fuel-items-content{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: space-between;
+}
+
+.fuel-items-content p{
+    font-size: 25px;
+    color: #000000;
+    line-height: 16px;
+    font-weight: 700;
+}
+
+.station-fuel-logo{
+    width: 100px;
+    height: auto;
+}
+
+
+.payment-option-container{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 60px;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.payment-option-container p{
+    font-size: 14px;
+    color: #575757;
+    line-height: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.payment-option-container h4{
+    font-size: 20px;
+    color: #000000;
+    line-height: 20px;
+    font-weight: 700;
+    margin-right: 40px;
+}
+
+.time-info-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 70px;
+    align-items: flex-start;
+    margin-left: 25px;
+}
+
+.time-info-container h4{
+    font-size: 28px;
+    color: #000000;
+    line-height: 28px;
+    font-weight: 700;
+}
+
+.time-info{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    gap: 10px;
+    size: 18px;
+    line-height: 16px;
+    color: #000000;
+    justify-content: space-between;
+}
+
+.days-info{
+    font-weight: 700; 
+    width: 70%;
+
+}
+
+.time-info{
+    font-weight: 400;
+    display: flex;
+    align-items: stretch;
+    justify-content: end;
+}
+
+.service-main-container{
+    display: flex;
+    margin: 0px 0px 20px 0px;
+}
+
+.service-left-container{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    gap: 30px;
+    align-items: center;
+}
+
+.service-right-container{
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+}
+
+.service-left-container h3{
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 35px;
+    color: #ED560E;
+}
+
+.find-out-more-btn{
+    width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
