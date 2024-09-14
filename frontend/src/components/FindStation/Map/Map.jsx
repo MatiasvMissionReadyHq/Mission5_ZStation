@@ -12,7 +12,7 @@ export default function Map({getDataFromStation}){
     const [locationData, setLocationData] = useState({})
     const [location, setLocation] = useState({})
     const [zoom, setZoom] = useState(5.6)
-    const apiKey = "AIzaSyAnj1Qo1B2pSFFL2nOeUlGUafRW0TnSw9c"
+    const apiKey = process.env.REACT_APP_API_KEY
 
 
     const locationPosition= [
