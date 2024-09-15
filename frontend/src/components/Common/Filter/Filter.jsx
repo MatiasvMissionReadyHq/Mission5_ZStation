@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import style from './Filter.module.css'
 
 export default function Filter({sendDataToStation, page}){
@@ -9,20 +9,6 @@ export default function Filter({sendDataToStation, page}){
     const [selectedService, setSelectedService] = useState("Select a service or services")
     const [selectedStationType, setSelectedStationType] = useState("Select Station Type")
     const [selectedFuelType, setSelectedFuelType] = useState("Select Fuel Type")
-
-    const ServiceType = [{"EV Charging":["Ultra-Fast", "Fast", "Fast &/or Ultra-Fast"]},
-                         {"Food & Drink": ["f'real", "Pre-order Coffee", "Z Espress Coffee & Fresh Food"]},
-                         
-                         {"Car Wash" : ["Z2O carwash"]},
-                         {"Payment Option": ["Pay by plate", "Pay at pump", "Pay in app"]},
-                         {"Fueling and Maintenance Gear" : ["Super long hoses", 
-                                                            "AdBlue Diesel Exhaust Fluid", 
-                                                            "Fast fill Diesel lane",
-                                                            "LPG SWAP'n'GO"]},
-                         {"Other": ["Compostable Cups", "Trailer hire", "Bathrooms", "A-Z Screen", "ATM"]}
-                        ]
-    const StationType = ["Truck stop", "Service Station"]
-    const FuelType = ["ZX Premium", "Z91 Unleaded", "Z Diesel"]
 
     function checkPage(page){
         return page === "Find A Station"
@@ -77,25 +63,8 @@ export default function Filter({sendDataToStation, page}){
                     <p>Services</p>
                     <select className={style.selectService} value={selectedService} onChange={handleService}>
                         <option>Select a service or services</option>
-                        {
-                            ServiceType.map((category, index) => {
-                                const categoryName = Object.keys(category)[0]
-                                const services = category[categoryName]
-
-                                return(
-                                    <React.Fragment  key={index} >
-                                        <option disabled className={style.serviceTypeLabel}>{categoryName}</option>
-                                        {
-                                            services.map((service, index) => (
-                                                <option key={index} value={service}>
-                                                    {service}
-                                                </option>
-                                            ))
-                                        }
-                                    </React.Fragment>
-                                )
-                            }) 
-                        }
+                        <option>
+                        </option>
                     </select>
                 </div>
 
@@ -103,11 +72,8 @@ export default function Filter({sendDataToStation, page}){
                     <p>Station Type</p>
                     <select className={style.selectStationType} value={selectedStationType} onChange={handleStationType}>
                         <option>Select Station Type</option>
-                            {
-                                StationType.map((station, index) => (
-                                    <option key={index} value={station}>{station}</option>
-                                ))
-                            }
+                        <option>
+                        </option>
                     </select>
                 </div>
 
@@ -115,11 +81,8 @@ export default function Filter({sendDataToStation, page}){
                     <p>Fuel Type</p>
                     <select className={style.selectFuelType} value={selectedFuelType} onChange={handleFuelType}>
                         <option>Select Fuel Type</option>
-                            {
-                                FuelType.map((fuel, index) => (
-                                    <option key={index} value={fuel}>{fuel}</option>
-                                ))
-                            }
+                        <option>
+                        </option>
                     </select>
                 </div>
 

@@ -102,7 +102,7 @@ export default function Map({getDataFromStation}){
 
     useEffect(() => {
         handleSearchLocation(location)
-    }, [location, address])
+    }, [location])
 
 
     async function handleLocationArea(locationDataFromStation){
@@ -137,12 +137,12 @@ export default function Map({getDataFromStation}){
         const locationFromStation = await defaultLocations
         
         if(locationFromStation && Array.isArray(locationFromStation)){
-            const closestLocation = locationFromStation.filter((place) => 
+            let closestLocation = locationFromStation.filter((place) => 
             place.address.toLowerCase().includes(address.toLowerCase()))
 
+            console.log(address)
             if(closestLocation.length > 0){
                 setLocation(closestLocation[0])
-                console.log("Closest Gas Station: ", closestLocation[0])
             }
         }
         else{
@@ -154,7 +154,7 @@ export default function Map({getDataFromStation}){
         setMapCenter({lat:Number(newLocation.latitude), lng:Number(newLocation.longitude)})
     }
 
-    console.log("Address From Station", address)
+
     return(
         <div className={style.mapContainer}>
             <GoogleMapReact
@@ -163,20 +163,20 @@ export default function Map({getDataFromStation}){
                 zoom={mapZoom}
             >
                 {address === "" &&
-                    locationPosition.map((place, index) => {
+                    locationPosition.map((location, index) => {
                         return(
                             <div 
                                  className={style.markerContainer}
                                  key={index}
-                                 lat={place.latitude}
-                                 lng={place.longitude}
+                                 lat={location.latitude}
+                                 lng={location.longitude}
                             >
                                 <FontAwesomeIcon icon={solidCircle} 
                                                  style={{ color: '#ED560E', fontSize: '2rem', opacity: '0.6', position:'absolute'}} 
                                 />
                                 <FontAwesomeIcon icon={regularCircle} style={{ color: '#ED560E', fontSize: '2rem', opacity: '1'}} />
                                 <span className={style.markerNumber}>
-                                    {getNumberOfStore(locationData, place.region)}
+                                    {getNumberOfStore(locationData, location.region)}
                                 </span>
                             </div>
                         )

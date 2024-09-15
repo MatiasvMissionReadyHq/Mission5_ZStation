@@ -35,7 +35,6 @@ export default function FindStation(){
         handleDataPassToMap()
     }, [passBackLocationFromHero, passBackFilterFromFilter, passBackLocationAndFilterFromLocation])
 
-    console.log(dataPassToMap)
     return(
         <div className="findStationContainer">
             <Hero sendDataToStation={handleDataFromHero}/>
