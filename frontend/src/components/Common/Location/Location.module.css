@@ -32,7 +32,7 @@
     width:9vw;
     height:5vh;
     position: absolute;
-    left:28vw;
+    left:38vw;
     border-radius: 5px;
     padding-left:0.5vw;
     box-sizing:border-box;
@@ -40,7 +40,7 @@
 
 
 .locationCard{
-    padding-top:3vh;
+    padding-top:5vh;
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -50,10 +50,15 @@
 }
 
 
+.linkToDetail{
+    text-decoration: none;
+}
+
+
 h3{
     color: #1E196A;
     font-weight: 800;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
 }
 
 

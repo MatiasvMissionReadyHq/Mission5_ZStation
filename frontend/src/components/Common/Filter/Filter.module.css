@@ -63,11 +63,31 @@
 }
 
 
+.selectService > option .serviceTypeLabel:hover{
+    color:white;
+    background-color: #ED560E;
+}
+
+
+.serviceTypeLabel{
+    background-color: #575757;
+    color:white;
+    padding:5px;
+    display:block;
+}
+
+
 .selectStationType{
     width:15vw;
     height:4.5vh;
     border: 2px solid grey;
     border-radius: 5px;
+}
+
+
+.selectStationType option:hover{
+    color:white;
+    background-color: #ED560E;
 }
 
 
