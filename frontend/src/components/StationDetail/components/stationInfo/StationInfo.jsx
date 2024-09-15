@@ -128,7 +128,7 @@ const StationInfo = () => {
                     </div>
                     <div className={styles["right-station-info"]}>
                         <LoadScript
-                                googleMapsApiKey='AIzaSyAywyBQAsX99xiC0AoxV4EvEky6oj_Xp8M'>
+                                googleMapsApiKey=''>
                                     <GoogleMap
                                     mapContainerStyle={mapStyles}
                                     zoom={16}
