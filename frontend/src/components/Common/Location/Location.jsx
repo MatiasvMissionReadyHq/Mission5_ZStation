@@ -2,6 +2,7 @@ import { useQuery } from 'react-query'
 import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons'
+import { NavLink } from 'react-router-dom'
 import style from './Location.module.css'
 
 
@@ -12,7 +13,7 @@ export default function Location({ sendDataToStation }){
     const [serviceOpen, setServiceOpen] = useState(new Set([0]))
     const [storeOpen, setStoreOpen] = useState(new Set([0]))
 
-    const priceOrder = ["Lowest Price", "Highest Price"]
+    const priceOrder = ["Lowest Price", "Highest Price", "A - Z Order", "Z - A Order"]
 
     useEffect(() => {
         sendDataToStation(data)
@@ -60,6 +61,7 @@ export default function Location({ sendDataToStation }){
         return(<p>Error!!</p>)
     }
 
+    console.log("Data", data)
     return(
         <div className={style.locationContainer}>
             <select className={style.sortPrice} onChange={(e) => {}}>
@@ -78,7 +80,9 @@ export default function Location({ sendDataToStation }){
             {
                 data.map((store, index) => (
                     <div className={style.locationCard} key={index}>    
-                        <h3>{store.name}</h3>
+                        <NavLink className={style.linkToDetail} to={`/stationDetail/${store._id}`}>
+                            <h3>{store.name}</h3>
+                        </NavLink>
                         <p>{store.address}</p>
                         
 

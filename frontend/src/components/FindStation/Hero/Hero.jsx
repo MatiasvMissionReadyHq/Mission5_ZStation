@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import style from './Hero.module.css'
 
@@ -6,17 +6,17 @@ export default function Hero({ sendDataToStation }){
     const [inputLocation, setInputLocation] = useState("")
     const [isClicked, setIsClicked] = useState("FindStation")
 
-    function handleInputLocation(e){
-        e.preventDefault()
-        setInputLocation(e.target.value)
-    }
 
     function handleSubmit(e){
         e.preventDefault()
-        sendDataToStation(e.target.value)
+        sendDataToStation(inputLocation)
     }
 
+    function handleUserInput(e){
+        setInputLocation(e.target.value)
+    }
 
+    
     return(
         <div className={style.heroContainer}>
             <div className={style.leftSection}>
@@ -46,7 +46,7 @@ export default function Hero({ sendDataToStation }){
                         type="text"
                         placeholder="Enter a location or station .."
                         value={inputLocation}
-                        onChange={(e)=> handleInputLocation(e)}
+                        onChange={(e)=> handleUserInput(e)}
                     />
                     <button 
                         className={style.submitBtn} 
