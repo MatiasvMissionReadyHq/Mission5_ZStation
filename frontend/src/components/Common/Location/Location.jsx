@@ -36,7 +36,6 @@ export default function Location({ sendDataToStation, getDataFromStation }){
 
     async function getLocationFromFilter(){
         addressParts = getAddress.split(',')
-        console.log("Address Parts", addressParts)
         const mapLocation = await data
         mapLocation.map((location) => {
             const newLocation = [location.address, location.city]
@@ -45,7 +44,6 @@ export default function Location({ sendDataToStation, getDataFromStation }){
                 setSameCity(prev => [...prev, location])
             }
         })
-        console.log("Same City", sameCity)
     }
 
     function handleServiceOpen(index){
