@@ -1,7 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.numberOfStation{
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    margin-top: 1vh;
+    padding-bottom: 2vh;
+    padding-left: 10vw;
+}
+
+
 .main{
     width:100%;
     height: 100vh;
     display:flex;
+}
+
+
+.mobileMain{
+    width:100%;
+    height:100vh;
+    display:flex;
+    flex-direction: column;
+}
+
+
+.filterBtn{
+    position:absolute;
+    right: 2vw;
+    top: 35vh;
+    z-index: 1;
+    border:transparent;
+    background: linear-gradient(to right, #1E196A, #3129AC);
+    padding: 1.5vh 10vw;
+    border-radius: 30px;
+    color:white;
+    font-size: 1rem;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    &:hover{
+        opacity: 0.9;
+        cursor: pointer;
+    }
+}
+
+
+.backBtn{
+    background-color: transparent;
+    border: none;
+    display: flex;
+    gap:1vw;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    align-items: center;
+    padding-left: 5vw;
 }
 
 
@@ -14,4 +65,11 @@
 .map{
     position: relative;
     width:60%
+}
+
+
+@media screen and (max-width:431px) {
+    .numberOfStation{
+        margin-top: 4vh;
+    }
 }

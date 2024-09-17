@@ -7,27 +7,33 @@ import HeadBar from './components/Common/HeadBar/HeadBar'
 import Footer from './components/Common/Footer/Footer'
 
 import { Route, Routes } from 'react-router-dom'
+import { useState } from 'react'
 
-function App() {
+function App() {  
+  const [isClicked, setIsClicked] = useState(false)
+  
+  function handleIsClicked(childData){
+    setIsClicked(childData)
+  }
 
-
+  console.log("App: ", isClicked)
   return (
-      <div>
-    
-        <HeadBar />
-    
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/findStation" element={<FindStation />} />
-            <Route path="/journeyPlanner" element={<JourneyPlanner />} />
-            <Route path="/stationDetail" element={<StationDetail />} />
-            <Route path="/stationDetail/:id" element={<StationDetail />} />
-          </Routes>
-
-        <Footer />
-              
+      <div className='app'>
+        <HeadBar sendIsClickedBackToApp={handleIsClicked}/>
+        {!isClicked &&
+          <div>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/findStation" element={<FindStation />} />
+              <Route path="/journeyPlanner" element={<JourneyPlanner />} />
+                <Route path="/stationDetail" element={<StationDetail />} />
+              <Route path="/stationDetail/:id" element={<StationDetail />} />
+            </Routes>
+            <Footer />
+          </div>
+        }
       </div>
-  )
-}
+    )
+  }
 
 export default App
