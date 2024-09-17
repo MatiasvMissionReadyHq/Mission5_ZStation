@@ -14,12 +14,12 @@ export default function HeadBar(){
         <div className={style.headBarContainer}>
             <div className={style.leftSection}>
                 <NavLink to="/">
-                    <img className={style.stationIcon} src="./zStationIcon.png" alt="Z Station Sign" />
+                    <img className={style.stationIcon} src="/zStationIcon.png" alt="Z Station Sign" />
                 </NavLink>
-                <h5>Products and services <img className={style.downVectorIcon} src="./downVector.png" alt="downVector" /></h5>
-                <h5>For businesses <img className={style.downVectorIcon} src="./downVector.png" alt="downVector" /></h5>
-                <h5>Sustainability <img className={style.downVectorIcon} src="./downVector.png" alt="downVector" /></h5>
-                <h5>About Z <img className={style.downVectorIcon} src="./downVector.png" alt="downVector" /></h5>
+                <h5>Products and services <img className={style.downVectorIcon} src="/downVector.png" alt="downVector" /></h5>
+                <h5>For businesses <img className={style.downVectorIcon} src="/downVector.png" alt="downVector" /></h5>
+                <h5>Sustainability <img className={style.downVectorIcon} src="/downVector.png" alt="downVector" /></h5>
+                <h5>About Z <img className={style.downVectorIcon} src="/downVector.png" alt="downVector" /></h5>
             </div>
 
             <div className={style.rightSection}>
@@ -40,7 +40,7 @@ export default function HeadBar(){
                         type="submit" 
                         onClick={(e) => handleSubmit(e)}
                     >
-                        <img className={style.searchIcon} src="searchIcon.png" alt="Search Icon" />
+                        <img className={style.searchIcon} src="/searchIcon.png" alt="Search Icon" />
                     </button>
                 </div>
             </div>
