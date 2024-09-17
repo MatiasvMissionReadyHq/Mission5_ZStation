@@ -94,7 +94,7 @@ const StationInfo = () => {
                                 <p>Contact Us: <span className={styles["phone-number"]}>00-0000000</span></p>
                             </div>
                             <div className={styles["get-directionBtn-container"]}>
-                                <img src={`${process.env.PUBLIC_URL}/getdirections.png`} alt="Get Directions" className={styles["station-getDirections-image"]} onClick={handleOnClick(stationInfo.latitude, stationInfo.longitude)}/>
+                                <img src="/getdirections.png" alt="Get Directions" className={styles["station-getDirections-image"]} onClick={handleOnClick(stationInfo.latitude, stationInfo.longitude)}/>
                             </div>
                         </div>
                         <div className={styles["station-fuel-info"]}>
