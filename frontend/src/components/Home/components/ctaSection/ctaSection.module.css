@@ -1,0 +1,49 @@
+.cta-section {
+    background: linear-gradient(to right, #FF8043, #FFE68D);
+    color: white;
+    text-align: justify;
+    padding: 40px 160px;
+    font-family: 'Inter', sans-serif;
+    height: 450px;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cta-section .cta-title {
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 60px;
+}
+
+.cta-section .cta-text {
+    width: 540px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+}
+
+.cta-section img {
+    width: 440px;
+    right: 0px;
+    top: -10%;
+    position: absolute;
+}
+
+.cta-button{
+
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    border-radius: 999px;
+    width: 150px;
+    padding: 8px 12px 8px 12px;
+    background: transparent;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 700;
+    cursor: pointer;
+}

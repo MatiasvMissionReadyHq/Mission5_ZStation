@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.filterContainer{
+    width:100%;
+    height:18vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:2vh;
+    padding-left:10vw;
+    font-size: 0.9rem;
+    font-family: "Inter";
+    font-weight: 600;
+}
+
+
+.pageNavigation{
+    display:flex;
+    align-items: center;
+    gap:0.5vw;
+    padding-top:2.2vh;
+}
+
+
+.page{
+    color:grey;
+    font-weight: 300;
+    text-decoration: none;
+}
+
+
+.currentPage{
+    color: #ED560E;
+    text-decoration: none;
+}
+
+
+.filterList{
+    display:flex;
+    align-items: center;
+    gap:3vw;
+}
+
+
+.filter{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:1vh;
+}
+
+
+.filter > p{
+    font-size: 0.75rem;
+}
+
+
+.selectService{
+    width:25vw;
+    height:4.5vh;
+    border: 2px solid grey;
+    border-radius: 5px;
+}
+
+
+.selectService > option .serviceTypeLabel:hover{
+    color:white;
+    background-color: #ED560E;
+}
+
+
+.serviceTypeLabel{
+    background-color: #575757;
+    color:white;
+    padding:5px;
+    display:block;
+}
+
+
+.selectType{
+    width:15vw;
+    height:4.5vh;
+    border: 2px solid grey;
+    border-radius: 5px;
+}
+
+
+.selectStationType option::before{
+    color:white;
+    background-color: #ED560E;
+}
+
+
+.selectStationType option::after{
+    color:white;
+    background-color: #ED560E;
+}
+
+
+.selectService, .selectType, option{
+    color:grey;
+    padding-left:0.5vw;
+}
+
+
+.btnContainer{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:2vw;
+    padding-top: 3vh;
+}
+
+
+.clearBtn{
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
+    color: #1E196A;
+    &:hover{
+        cursor: pointer;
+        opacity: 0.9;
+    }
+    
+}
+
+
+.filterBtn{
+    border:transparent;
+    background: linear-gradient(to right, #1E196A, #3129AC);
+    padding: 1.5vh 2vw;
+    border-radius: 30px;
+    color:white;
+    &:hover{
+        opacity: 0.9;
+        cursor: pointer;
+    }
+}
+
+
+
+@media screen and (max-width:431px) {
+    .filterContainer{
+        height:55vh;
+    }
+
+    .filterList{
+        display:flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap:4vh;
+    }
+
+    .filter{
+        gap:1.5vh;
+    }
+
+    .filter > p{
+        font-family: "Inter", sans-serif;
+        font-weight: 800;
+        font-size: 1rem;
+    }
+
+    .selectService{
+        width:80vw;
+        height:4.5vh;
+    }
+
+    .selectType{
+        width:80vw;
+        height:4.5vh;
+    }
+
+    .btnContainer{
+        display: inline-block;
+        padding-left: 18vw;
+        padding-top: 0;
+        padding-bottom: 5vh;
+    }
+
+    .filterBtn{
+        font-size: 1rem;
+        padding: 1.5vh 10vw;
+    }
+}

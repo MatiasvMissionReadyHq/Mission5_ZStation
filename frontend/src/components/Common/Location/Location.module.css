@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.locationContainer{
+    position: relative;
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar{
+        width:12px;
+    }
+
+    &::-webkit-scrollbar-track{
+        border-radius: 15px;
+        background-color: #F1F1F1;
+        box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+    }
+
+    &::-webkit-scrollbar-thumb{
+        height:11.5vh;
+        background-color: #ED560E;
+        border:2px solid transparent;
+        background-clip: padding-box;
+        border-radius: 15px;
+    }
+}
+
+
+.sortPrice{
+    width:9vw;
+    height:5vh;
+    position: absolute;
+    left:38vw;
+    border-radius: 5px;
+    padding-left:0.5vw;
+    box-sizing:border-box;
+}
+
+
+.sortPrice option:hover{
+    background-color: #ED560E;
+}
+
+
+.locationCard{
+    padding-top:5vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:1vh;
+    font-family: "Inter", sans-serif;
+    padding-left:10vw;
+}
+
+
+.linkToDetail{
+    text-decoration: none;
+}
+
+
+h3{
+    color: #1E196A;
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+
+p{
+    font-weight:600;
+    font-size: 0.7rem;
+}
+
+
+.openStore{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
+    gap:1vh;
+}
+
+
+.openStoreBtn{
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.7rem;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap:0.3vw;
+}
+
+
+.openInfoContainer{
+    width:15vw;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:2vw;    
+}
+
+
+.service{
+    width:100%;
+}
+
+
+.serviceBtn{
+    font-weight: 600;
+    font-size: 0.7rem;
+    background-color: transparent;
+    border: none;
+}
+
+
+.serviceBtnContainer{
+    padding-top: 1vh;
+    width:50%;
+    display:flex;
+    flex-wrap: wrap;
+    gap:0.3vw;
+}
+
+.serviceInfoBtn{
+    background-color: #FF5200;
+    color:white;
+    border:none;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    padding:0.2vh 0.4vw;
+}
+
+
+.fuelPrice{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1vh;
+}
+
+
+.fuels{
+    display: flex;
+    align-items: center;
+    gap: 3vw;
+}
+
+
+.findOutMoreBtn{
+    background-color: #3129AC;
+    color:white;
+    border:none;
+    padding: 0.1vh 0.2vw;
+    border-radius: 5px;
+    font-size: 0.6rem;
+    margin-top:1.5vw;
+}
+
+
+.divider{
+    width:90%;
+    height:0.2vh;
+    border-radius: 15px;
+    background-color: #585967;
+}
+
+
+@media screen and (max-width:431px) {
+    .locationContainer{
+        width:95%;
+    }
+
+    .sortPrice{
+        width:80%;
+        left:12vw;
+        border-radius: 5px;
+        padding-left:2vw;
+        box-sizing:border-box;
+    }
+
+    .locationCard{
+        padding-top: 7vh;
+    }
+
+    .address{
+        color:#575757;
+    }
+
+    .openStoreActivate {
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+    }
+
+    .openInfoContainer{
+        padding-top: 1vh;
+        width:50vw;
+        color:#575757; 
+    }
+
+    .serviceActivate{
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+    }
+
+    .serviceBtnContainer{
+        gap:1.5vw;
+    }
+
+    .serviceInfoBtn{
+        padding:0.8vh 1.2vw;
+    }
+
+    .fuelPrice{
+        background-color: #F0F0F0;
+        width:90%;
+
+    }
+
+    .fuelPrice > p{
+        font-family: "Inter", sans-serif;
+        font-weight: 800;
+        margin-left: 5vw;
+        margin-top: 1vh;
+    }
+
+    .fuels{
+        display:flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 8vw;
+        margin-bottom: 2vh;
+    }
+
+    .fuels > p{
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+    }
+}
