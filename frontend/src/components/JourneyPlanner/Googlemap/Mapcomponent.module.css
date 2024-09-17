@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  height: 500px;
+}
+
+.details {
+  flex: 1;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+.map {
+  flex: 1;
+}

@@ -1,0 +1,160 @@
+
+.heroContainer {
+  width: 100%;
+  height: 30vh;
+  background: 
+      url("/images/zStationLogo.png"),
+      linear-gradient(to right, #F06517 0%, #FD9935 51%, #FFBF16 100%);
+  background-size: 71vw 68.9vh, cover;
+  background-repeat: no-repeat, no-repeat;
+  background-position: bottom right, top left;
+  z-index: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  color: white;
+  text-align: left;
+}
+
+.heroBanner {
+  background-image: url("https://source.unsplash.com/1600x900/?travel");
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.content {
+  background-color: transparent;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 100px;
+
+}
+
+.leftSection {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2vh;
+  padding-top: 1vw;
+  padding-left: 10%;
+}
+
+.bthContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+}
+
+
+.heroBtn {
+  font-weight: bold;
+  border: transparent;
+  border-radius: 1px;
+  padding: 1vh 1.0vw;
+  background-color: white;
+  color: #ED560E;
+ 
+  box-shadow: 0 3px 3px 0 rgb(136, 115, 106);
+
+}
+
+.heroBtn:active {
+  box-shadow: 0 0 3px 0 rgb(136, 115, 106);
+}
+
+.activeHeroBtn {
+  font-weight: bold;
+  border: transparent;
+  border-radius: 1px;
+  padding: 1vh 1.0vw; 
+  background-color: #ED560E;
+  color: white;
+
+  box-shadow: 0 3px 3px 0 rgb(136, 115, 106);
+  cursor: pointer;
+}
+
+.submitBtn, .button {
+  position: absolute;
+
+}
+.searchIcon, .icon {
+  width: auto;
+  height: 2.5vh;
+  position: absolute;
+  border-radius: 4px;
+  cursor: pointer;
+  color:black;
+
+}
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3vh;
+  width: 1000% /* Adjust the width as needed */;
+  margin: 10px;
+  position: relative;
+  z-index: 100;
+  border-radius: 100px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: orangered;
+  left: 500px;
+  overflow: ;
+  background-color: transparent;
+  padding: 10px 100px  10px 200px;
+  border-radius: 20px;
+ 
+
+}
+
+.button {
+  position: flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5vw;
+  height: 5vh;
+  left: 500px;
+  padding: 10% 10% 10% 10%;
+  background-color: #ED560E;
+  cursor: pointer;
+  color: white;
+  border-radius: 100px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: transparent;
+  font-weight: bold;
+}
+
+
+
+.crosshair {
+  padding-top: 0.5vw;
+  padding-right: 0.5vw;
+  width: auto;
+  height: 1vh;
+}
+.crosshair:hover {
+  cursor: pointer;
+}
+
+.error {        
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
