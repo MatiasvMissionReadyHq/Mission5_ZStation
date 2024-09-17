@@ -25,20 +25,20 @@ export default function HeadBar({ sendIsClickedBackToApp }){
     return(
         <div className={style.headBarContainer}>
             <div className={style.leftSection}>
-                    <NavLink to="/">
-                        <img className={style.stationIcon} src="./zStationIcon.png" alt="Z Station Sign" />
-                    </NavLink>                
-                    {isMenuClicked && window.screen.width <= 430 &&
-                        <HeadBarContent />
-                    }
-                    {window.screen.width > 431 && 
-                        <div className={style.normal}>
-                            <h5>Products and services <img className={style.downVectorIcon} src="./downVector.png" alt="downVector" /></h5>
-                            <h5>For businesses <img className={style.downVectorIcon} src="./downVector.png" alt="downVector" /></h5>
-                            <h5>Sustainability <img className={style.downVectorIcon} src="./downVector.png" alt="downVector" /></h5>
-                            <h5>About Z <img className={style.downVectorIcon} src="./downVector.png" alt="downVector" /></h5>
-                        </div>
-                    }
+                <NavLink to="/">
+                    <img className={style.stationIcon} src="/zStationIcon.png" alt="Z Station Sign" />
+                </NavLink>                
+                {isMenuClicked && window.screen.width <= 430 &&
+                    <HeadBarContent />
+                }
+                {window.screen.width > 431 && 
+                    <div className={style.normal}>
+                        <h5>Products and services <img className={style.downVectorIcon} src="/downVector.png" alt="downVector" /></h5>
+                        <h5>For businesses <img className={style.downVectorIcon} src="/downVector.png" alt="downVector" /></h5>
+                        <h5>Sustainability <img className={style.downVectorIcon} src="/downVector.png" alt="downVector" /></h5>
+                        <h5>About Z <img className={style.downVectorIcon} src="/downVector.png" alt="downVector" /></h5>
+                    </div>
+                }
             </div>
 
             <div className={style.rightSection}>
@@ -61,7 +61,7 @@ export default function HeadBar({ sendIsClickedBackToApp }){
                         type="submit" 
                         onClick={(e) => handleSubmit(e)}
                     >
-                        <img className={style.searchIcon} src="searchIcon.png" alt="Search Icon" />
+                        <img className={style.searchIcon} src="/searchIcon.png" alt="Search Icon" />
                     </button>
                 </div>
 
