@@ -39,6 +39,11 @@
 }
 
 
+.sortPrice option:hover{
+    background-color: #ED560E;
+}
+
+
 .locationCard{
     padding-top:5vh;
     display:flex;
@@ -100,24 +105,26 @@ p{
 
 .service{
     width:100%;
-    
 }
 
 
 .serviceBtn{
-    text-align: left;
     font-weight: 600;
     font-size: 0.7rem;
     background-color: transparent;
     border: none;
-    display: flex;
-    align-items: center;
-    gap:0.3vw;
 }
 
 
+.serviceBtnContainer{
+    padding-top: 1vh;
+    width:50%;
+    display:flex;
+    flex-wrap: wrap;
+    gap:0.3vw;
+}
+
 .serviceInfoBtn{
-    margin-top:0.3vh;
     background-color: #FF5200;
     color:white;
     border:none;
@@ -150,4 +157,85 @@ p{
     border-radius: 5px;
     font-size: 0.6rem;
     margin-top:1.5vw;
+}
+
+
+.divider{
+    width:90%;
+    height:0.2vh;
+    border-radius: 15px;
+    background-color: #585967;
+}
+
+
+@media screen and (max-width:431px) {
+    .locationContainer{
+        width:95%;
+    }
+
+    .sortPrice{
+        width:80%;
+        left:12vw;
+        border-radius: 5px;
+        padding-left:2vw;
+        box-sizing:border-box;
+    }
+
+    .locationCard{
+        padding-top: 7vh;
+    }
+
+    .address{
+        color:#575757;
+    }
+
+    .openStoreActivate {
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+    }
+
+    .openInfoContainer{
+        padding-top: 1vh;
+        width:50vw;
+        color:#575757; 
+    }
+
+    .serviceActivate{
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+    }
+
+    .serviceBtnContainer{
+        gap:1.5vw;
+    }
+
+    .serviceInfoBtn{
+        padding:0.8vh 1.2vw;
+    }
+
+    .fuelPrice{
+        background-color: #F0F0F0;
+        width:90%;
+
+    }
+
+    .fuelPrice > p{
+        font-family: "Inter", sans-serif;
+        font-weight: 800;
+        margin-left: 5vw;
+        margin-top: 1vh;
+    }
+
+    .fuels{
+        display:flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 8vw;
+        margin-bottom: 2vh;
+    }
+
+    .fuels > p{
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+    }
 }

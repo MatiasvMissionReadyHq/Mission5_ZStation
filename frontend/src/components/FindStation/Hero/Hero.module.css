@@ -2,7 +2,7 @@
     width:100%;
     height:30vh;
     background: 
-        url("/images/zStationLogo.png"),
+        url("/zStationLogo.png"),
         linear-gradient(to right, #F06517 0%, #FD9935 51%, #FFBF16 100%);
     background-size: 71vw 68.9vh, cover;
     background-repeat: no-repeat, no-repeat;
@@ -105,4 +105,70 @@
     padding-right:0.2vw;
     width:auto;
     height:2vh;
+}
+
+
+@media screen and (max-width: 431px){
+    .heroContainer{
+        height:25vh;
+        background: 
+            linear-gradient(to right, #F06517 0%, #FD9935 51%, #FFBF16 100%);
+    }
+
+    .leftSection{
+        align-items: center;
+        padding-top:8vw;
+        padding-left:0;
+        padding-right:4.5vw;
+    }
+
+    .bthContainer{
+        gap:3vw;
+    }
+
+    .heroBtn{
+        font-size: 1.2rem;
+        border-radius: 12px;
+        padding: 1vh 4vw;
+    }
+
+    .activeHeroBtn{
+        font-size: 1.2rem;
+        border-radius: 12px;
+        padding: 1vh 6.4vw;
+    }
+
+    .inputField{
+        width:90%;
+    }
+
+    .userInput{
+        padding-left:3vw;
+    }
+
+    .submitBtn{
+        right: 4vw;
+    }
+
+    .currentLocationLink{
+        display: inline;
+        text-decoration: none;
+        color: white;
+    }
+    
+    .locationInfo{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        gap:1vh;
+    }
+
+    .locationInfo > p{
+        padding-right: 42vw;
+        font-size: 1rem;
+    }
+
+    .crosshair{
+        display: none;
+    }
 }

@@ -6,18 +6,47 @@ import { NavLink } from 'react-router-dom'
 import style from './Location.module.css'
 
 
-export default function Location({ sendDataToStation }){
+export default function Location({ sendDataToStation, getDataFromStation }){
     const {data, isLoading, error } = useQuery("Location", getLocation)
     const [isOpen, setIsOpen] = useState(false)
     const [isServiceOpen, setIsServiceOpen] = useState(false)
     const [serviceOpen, setServiceOpen] = useState(new Set([0]))
-    const [storeOpen, setStoreOpen] = useState(new Set([0]))
-
+    const [storeOpen, setStoreOpen] = useState(new Set([0])) 
+    const [sameCity, setSameCity] = useState([])
+    const [getAddress , setGetAddress] = useState(getDataFromStation.address)
+    const [filter, setFilter] = useState(getDataFromStation.filter)
+    const [sortFilter, setSortFilter] = useState('')
+    let addressParts = []
     const priceOrder = ["Lowest Price", "Highest Price", "A - Z Order", "Z - A Order"]
 
     useEffect(() => {
         sendDataToStation(data)
     }, [data])
+
+    useEffect(() => {
+        setGetAddress(getDataFromStation.address)
+        setFilter(getDataFromStation.filter)
+        getLocationFromFilter()
+    }, [getDataFromStation])
+
+
+    function handleFilter(e){
+        setSortFilter(e.target.value)
+    }
+
+    async function getLocationFromFilter(){
+        addressParts = getAddress.split(',')
+        console.log("Address Parts", addressParts)
+        const mapLocation = await data
+        mapLocation.map((location) => {
+            const newLocation = [location.address, location.city]
+            const doesMatchAddress = addressParts.every(part => newLocation.every(location => location.toLowerCase().includes(part.toLowerCase()))) 
+            if(doesMatchAddress){
+                setSameCity(prev => [...prev, location])
+            }
+        })
+        console.log("Same City", sameCity)
+    }
 
     function handleServiceOpen(index){
         const updatedServiceOpen = new Set(serviceOpen)
@@ -61,10 +90,9 @@ export default function Location({ sendDataToStation }){
         return(<p>Error!!</p>)
     }
 
-    console.log("Data", data)
     return(
         <div className={style.locationContainer}>
-            <select className={style.sortPrice} onChange={(e) => {}}>
+            <select className={style.sortPrice} onChange={(e) => {handleFilter(e)}}>
                 <option>Sort prices ..</option>
                 {
                     priceOrder.map((order, index) => {
@@ -83,11 +111,12 @@ export default function Location({ sendDataToStation }){
                         <NavLink className={style.linkToDetail} to={`/stationDetail/${store._id}`}>
                             <h3>{store.name}</h3>
                         </NavLink>
-                        <p>{store.address}</p>
+                        <p className={style.address}>{store.address}</p>
                         
 
-                        <div className={style.openStore}>
-                            <button className={style.openStoreBtn} onClick={() => handleOpen(index)}>
+                        <div className={window.screen.width <= 430 && storeOpen.has(index) ? style.openStoreActivate : style.openStore}>
+                            <button className={style.openStoreBtn} 
+                                    onClick={() => handleOpen(index)}>
                                 Opening Hours 
                                 {
                                     !storeOpen.has(index) ? 
@@ -108,7 +137,7 @@ export default function Location({ sendDataToStation }){
                             }
                         </div>
                         
-                        <div className={style.service}>
+                        <div className={window.screen.width <= 430 && serviceOpen.has(index) ? style.serviceActivate : style.service}>
                             <button className={style.serviceBtn} onClick={() => handleServiceOpen(index)}>
                                 Services 
                                 {
@@ -117,14 +146,16 @@ export default function Location({ sendDataToStation }){
                                     : <FontAwesomeIcon icon={faChevronUp} style={{ fontSize: "0.7rem" }} />
                                 }
                             </button>
-
-                            {serviceOpen.has(index) &&
-                                store.services.map((service, index) => (
-                                    <div key={index}>
-                                        <button className={style.serviceInfoBtn}>{service.name}</button>
-                                    </div>
-                                ))
-                            }
+                            
+                            <div className={style.serviceBtnContainer}>
+                                {serviceOpen.has(index) &&
+                                    store.services.map((service, index) => (
+                                        <div key={index}>
+                                            <button className={style.serviceInfoBtn}>{service.name}</button>
+                                        </div>
+                                    ))
+                                }
+                            </div>
                         </div>
 
                         <div className={style.fuelPrice}>
@@ -133,10 +164,12 @@ export default function Location({ sendDataToStation }){
                                 <p>TEMP FUEL 1</p>
                                 <p>TEMP FUEL 2</p>
                                 <p>TEMP FUEL 3</p>
-                                <button className={style.findOutMoreBtn}>Find out more</button>
+                                {window.screen.width > 431 &&
+                                    <button className={style.findOutMoreBtn}>Find out more</button>
+                                }
                             </div>
-                            
                         </div>
+                        <span className={style.divider}></span>
                     </div>
                 ))
             }

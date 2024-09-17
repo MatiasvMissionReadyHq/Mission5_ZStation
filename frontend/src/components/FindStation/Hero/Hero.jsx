@@ -5,6 +5,7 @@ import style from './Hero.module.css'
 export default function Hero({ sendDataToStation }){
     const [inputLocation, setInputLocation] = useState("")
     const [isClicked, setIsClicked] = useState("FindStation")
+    const [distance, setDistance] = useState(5)
 
 
     function handleSubmit(e){
@@ -58,7 +59,17 @@ export default function Hero({ sendDataToStation }){
                 </div>
                 
                 <div className={style.currentLocationLink}>
-                    <p><img className={style.crosshair} src="./crosshair.png" alt="Crosshair" />Use my current location</p>
+                    {window.screen.width > 431 &&
+                        <p><img className={style.crosshair} src="./crosshair.png" alt="Crosshair" />Use my current location</p>
+                    }
+                    {window.screen.width < 431 &&
+                        <div className={style.locationInfo}>
+                            <p>Or use my current location</p>
+                            {inputLocation !== "" &&
+                                <p>Distance Set: {distance}km</p>
+                            }
+                        </div>
+                    }
                 </div>
             </div>
         </div>

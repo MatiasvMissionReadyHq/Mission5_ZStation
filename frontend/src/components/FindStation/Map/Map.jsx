@@ -10,8 +10,9 @@ import { useState, useEffect } from 'react'
 export default function Map({getDataFromStation}){
     const [address, setAddress] = useState('')
     const [locationData, setLocationData] = useState({})
-    const [location, setLocation] = useState({})
-    const [mapCenter, setMapCenter] = useState({lat: -40.88694417577929, lng: 172.25732675689105})
+    const [map, setMap] = useState(null)
+    const [maps, setMaps] = useState(null)
+    const [coordinate, setCoordinates] = useState({lat: -40.88694417577929, lng: 172.25732675689105})
     const [mapZoom, setMapZoom] = useState(5.6)
     const apiKey = process.env.REACT_APP_API_KEY
 
@@ -93,18 +94,26 @@ export default function Map({getDataFromStation}){
         if(getDataFromStation){
             setAddress(getDataFromStation.address)
             handleLocationArea(getDataFromStation.locationData)
-            handleFindLocation(getDataFromStation.locationData)
         }
         else{
             console.error("getDataFromStation is not available or not an array")
         }
     }, [getDataFromStation])
 
-    useEffect(() => {
-        handleSearchLocation(location)
-    }, [location])
+    useEffect(() =>{
+        if(map && maps && address){
+            handleGeoCodeAddress(address)
+            if(address !== ""){
+                setMapZoom(20)
+            }
+        }
+    }, [map, maps, address])
 
 
+    function handleApiLoaded({ map, maps }){
+        setMap(map)
+        setMaps(maps)
+    }
     async function handleLocationArea(locationDataFromStation){
         const sortLocation = {}
         const locationDataFromDb = await locationDataFromStation
@@ -133,25 +142,24 @@ export default function Map({getDataFromStation}){
         return locationData[region] ? locationData[region].length : 0
     }
 
-    async function handleFindLocation(defaultLocations){
-        const locationFromStation = await defaultLocations
-        
-        if(locationFromStation && Array.isArray(locationFromStation)){
-            let closestLocation = locationFromStation.filter((place) => 
-            place.address.toLowerCase().includes(address.toLowerCase()))
+    function handleGeoCodeAddress(address){
+        if(maps && maps.Geocoder){
+            const geocoder = new maps.Geocoder()
 
-            console.log(address)
-            if(closestLocation.length > 0){
-                setLocation(closestLocation[0])
-            }
+            geocoder.geocode({address: address}, (results, status) => {
+                if(status === "OK"){
+                    const location = results[0].geometry.location
+                    setCoordinates({lat:location.lat(), lng: location.lng()})
+                    map.setCenter(location)
+                }
+                else{
+                    console.error("Geocode was not successful for the following reason: ", + status)
+                }
+            })
         }
         else{
-            console.log("Location data is not available or not an array")
+            console.error("Maps or Geocoder is not loaded yet.")
         }
-    }
-
-    function handleSearchLocation(newLocation){
-        setMapCenter({lat:Number(newLocation.latitude), lng:Number(newLocation.longitude)})
     }
 
 
@@ -159,24 +167,26 @@ export default function Map({getDataFromStation}){
         <div className={style.mapContainer}>
             <GoogleMapReact
                 bootstrapURLKeys={{key : apiKey}}
-                center={{lat: mapCenter.lat, lng: mapCenter.lng}}
+                center={coordinate}
                 zoom={mapZoom}
+                yesIWantToUseGoogleMapApiInternals
+                onGoogleApiLoaded={handleApiLoaded}
             >
                 {address === "" &&
-                    locationPosition.map((location, index) => {
+                    locationPosition.map((place, index) => {
                         return(
                             <div 
                                  className={style.markerContainer}
                                  key={index}
-                                 lat={location.latitude}
-                                 lng={location.longitude}
+                                 lat={place.latitude}
+                                 lng={place.longitude}
                             >
                                 <FontAwesomeIcon icon={solidCircle} 
                                                  style={{ color: '#ED560E', fontSize: '2rem', opacity: '0.6', position:'absolute'}} 
                                 />
                                 <FontAwesomeIcon icon={regularCircle} style={{ color: '#ED560E', fontSize: '2rem', opacity: '1'}} />
                                 <span className={style.markerNumber}>
-                                    {getNumberOfStore(locationData, location.region)}
+                                    {getNumberOfStore(locationData, place.region)}
                                 </span>
                             </div>
                         )
