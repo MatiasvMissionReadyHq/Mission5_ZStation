@@ -13,6 +13,7 @@ export default function StationDetail(){
     const [stationInfo, setStationInfo] = useState({});
     const [stationLocation, setStationLocation] = useState(false);
 
+
     const handleReturn = () => {
         navigation('/FindStation');
     }
@@ -37,6 +38,24 @@ export default function StationDetail(){
         
     }, []);
 
+    const ServiceType = [
+
+        { "EV Charging": ["Ultra-Fast", "Fast", "Fast &/or Ultra-Fast"] },
+        { "Food & Drink": ["f'real", "Pre-order Coffee", "Z Espress Coffee & Fresh Food"] },
+        { "Car Wash": ["Z2O carwash"] },
+        { "Payment Option": ["Pay by plate", "Pay at pump", "Pay in app"] },
+        { "Fueling and Maintenance Gear": ["Super long hoses", "AdBlue Diesel Exhaust Fluid", "Fast fill Diesel lane", "LPG SWAP'n'GO"] },
+        { "Other": ["Compostable Cups", "Trailer hire", "Bathrooms", "A-Z Screen", "ATM"] }
+    ];
+
+    // Convert ServiceType to a lookup object for easier access
+    const serviceCategoryMap = ServiceType.reduce((acc, category) => {
+        const [categoryName, services] = Object.entries(category)[0];
+        services.forEach(service => {
+        acc[service] = categoryName;
+        });
+        return acc;
+    }, {});
 
     useEffect(() => {
 
@@ -46,10 +65,11 @@ export default function StationDetail(){
                 lng: Number(stationInfo.longitude)
             }
             setStationLocation(defaultCenter);
-
+            //console.log(stationInfo)
         }
         
     }, [stationInfo]);
+
 
     const fetchDataById = async(id) =>{
 
@@ -65,6 +85,18 @@ export default function StationDetail(){
             const response = await fetch('http://localhost:5000/stationDetailsById', options)
             const data = await response.json();
             if(typeof(data?.error)==='undefined'){
+
+                const classifiedServices = data.services.reduce((acc, service) => {
+                    const category = serviceCategoryMap[service.name] || 'Unknown';
+                    if (!acc[category]) {
+                        acc[category] = [];
+                    }
+                        acc[category].push(service);
+                    return acc;
+                }, {});
+
+            
+                data.services=classifiedServices;
                 setStationInfo(data);
             }else{
                 navigation('/FindStation');
@@ -157,11 +189,21 @@ export default function StationDetail(){
                         <img src='/findOutMoreButton.png' alt="Z Petrol Station" className={styles["find-out-more-btn"]}/>
                     </div>
                     <div className={styles['service-right-container']}>
-                        {stationInfo?.services?.map((hour, index) => (    
-                            <div key={index} className={styles['service-container']}>
-                                <p>{hour.name}</p>
-                            </div>  
-                        ))}  
+
+                        {
+                            typeof(stationInfo.services) !== 'undefined' &&
+
+                            Object.entries(stationInfo.services).map(([category, services], index) => (
+                                <div key={index} className={styles['container-service-details']}>
+                                    <div className={styles['service-title-container']}>{category}</div>
+                                    <div className={styles['service-details-container']}>
+                                        {services.map((service, index) => (
+                                            <p key={index}>{service.name}</p>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))
+                        }  
                     </div>
                 </div>
             </div>
