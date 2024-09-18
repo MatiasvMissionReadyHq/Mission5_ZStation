@@ -190,9 +190,40 @@
 
 .service-right-container{
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     width: 55%;
     gap: 30px;
+}
+
+.container-service-details{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.service-title-container{
+    display: flex;
+    font-size: 20px;
+    color: #000000;
+    line-height: 20px;
+    font-weight: 700;
+    margin-right: 40px;
+}
+
+.service-details-container{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.service-details-container p{
+
+    font-size: 15px;
+    line-height: 15px;
+    font-weight: 700;
+    margin-right: 30px;
+    color: #3129AC;
 }
 
 .service-left-container h3{
