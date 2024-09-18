@@ -11,7 +11,6 @@ export default function HeadBar({ sendIsClickedBackToApp }){
 
     function handleSubmit(e){
         e.preventDefault()
-        console.log(userInput)
     }
 
     function handleClick(){

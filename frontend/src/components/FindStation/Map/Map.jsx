@@ -9,11 +9,15 @@ import { useState, useEffect } from 'react'
 
 export default function Map({getDataFromStation}){
     const [address, setAddress] = useState('')
+    const [stationLocation, setStationLocation] = useState(getDataFromStation.locationData)
     const [locationData, setLocationData] = useState({})
     const [map, setMap] = useState(null)
     const [maps, setMaps] = useState(null)
     const [coordinate, setCoordinates] = useState({lat: -40.88694417577929, lng: 172.25732675689105})
     const [mapZoom, setMapZoom] = useState(5.6)
+    const [radius, setRadius] = useState(5000)
+    const [displayRadius, setDisplayRadius] = useState(radius / 1000)
+    const [circle, setCircle] = useState(null)
     const apiKey = process.env.REACT_APP_API_KEY
 
 
@@ -93,6 +97,7 @@ export default function Map({getDataFromStation}){
     useEffect(() => {
         if(getDataFromStation){
             setAddress(getDataFromStation.address)
+            setStationLocation(getDataFromStation.locationData)
             handleLocationArea(getDataFromStation.locationData)
         }
         else{
@@ -103,17 +108,50 @@ export default function Map({getDataFromStation}){
     useEffect(() =>{
         if(map && maps && address){
             handleGeoCodeAddress(address)
+
             if(address !== ""){
-                setMapZoom(20)
+                setMapZoom(17)
+
+                if(!isNaN(coordinate.lat) && !isNaN(coordinate.lng)){
+                    console.log("Coordinate: ", coordinate)
+                    const nearestStation = findNearestStation(coordinate.lat, coordinate.lng, stationLocation)
+                    console.log(nearestStation)
+                    if(nearestStation){
+                        setCoordinates({ lat: nearestStation.latitude, lng: nearestStation.longitude})
+                        map.setCenter({ lat:nearestStation.latitude, lng:nearestStation.longitude})
+                    }
+                }
             }
         }
-    }, [map, maps, address])
+    }, [map, maps, address, coordinate])
 
+    useEffect(() =>{
+        if(map && maps && circle){
+            circle.setCenter(coordinate)
+            circle.setRadius(radius)
+        }
+        setDisplayRadius(radius / 1000)
+    }, [coordinate, radius, map, maps, circle])
 
     function handleApiLoaded({ map, maps }){
         setMap(map)
         setMaps(maps)
+
+        if(address !== ""){
+            const newCircle = new maps.Circle({
+                map: map,
+                center: coordinate,
+                radius: radius,
+                fillColor:"#FF5200",
+                fillOpacity: 0.3,
+                strokeColor: "#FF5200",
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+            });
+            setCircle(newCircle)
+        }
     }
+
     async function handleLocationArea(locationDataFromStation){
         const sortLocation = {}
         const locationDataFromDb = await locationDataFromStation
@@ -142,6 +180,22 @@ export default function Map({getDataFromStation}){
         return locationData[region] ? locationData[region].length : 0
     }
 
+    function haversineDistance(lat1, lng1, lat2, lng2){
+        const toRadians = (degree) => degree * (Math.PI / 180)
+
+        const R = 6371;
+        const dLat = toRadians(lat2 - lat1)
+        const dLng = toRadians(lng2 - lng1)
+
+        const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                  Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) *
+                  Math.sin(dLng / 2) * Math.sin(dLng / 2)
+
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
+        
+        return R * c * 1000
+    }
+
     function handleGeoCodeAddress(address){
         if(maps && maps.Geocoder){
             const geocoder = new maps.Geocoder()
@@ -162,6 +216,35 @@ export default function Map({getDataFromStation}){
         }
     }
 
+    function findNearestStation(userLat, userLng, stations){
+        let nearestStation = null
+        let minDistance = Infinity
+
+        stations.forEach(station => {
+            const distance = haversineDistance(userLat, userLng, station.latitude, station.longitude)
+            if(distance < minDistance){
+                minDistance = distance
+                nearestStation = station
+            }
+        })
+        return nearestStation
+    }
+
+    function handleSliderChange(event){
+        const newRadius = Number(event.target.value)
+        setRadius(newRadius)
+        setDisplayRadius(newRadius / 1000)
+
+        if(circle){
+            circle.setRadius(newRadius)
+        }
+
+        const nearestStation = findNearestStation(coordinate.lat, coordinate.lng, stationLocation)
+        if(nearestStation){
+            setCoordinates({lat: nearestStation.latitude, lng: nearestStation.longitude})
+            map.setCenter({ lat:nearestStation.latitude, lng: nearestStation.longitude})
+        }
+    }
 
     return(
         <div className={style.mapContainer}>
@@ -171,6 +254,10 @@ export default function Map({getDataFromStation}){
                 zoom={mapZoom}
                 yesIWantToUseGoogleMapApiInternals
                 onGoogleApiLoaded={handleApiLoaded}
+                options={{
+                    keyboardShortcuts: false,
+                    zoomControl: false
+                }}
             >
                 {address === "" &&
                     locationPosition.map((place, index) => {
@@ -197,8 +284,19 @@ export default function Map({getDataFromStation}){
                         <img src={StationPin} alt="Station Pin.png" style={{width:"3vw", height:"9vh"}}/>
                     </div>
                 )}
-
             </GoogleMapReact>
+
+            {address !== "" && <div className={style.sliderContainer}>
+                <input
+                    type="range"
+                    min="5000"
+                    max="50000"
+                    step="5000"
+                    value={radius}
+                    onChange={handleSliderChange}
+                />
+                <p>{displayRadius}km</p>
+            </div>}
         </div>
     )
 }

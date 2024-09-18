@@ -46,7 +46,8 @@ export default function FindStation(){
     }
 
     function handleDataPassToMap(){
-        setDataPassToMap({address: passBackLocationFromHero,  
+        setDataPassToMap({address: passBackLocationFromHero,
+                          filter: passBackFilterFromFilter,
                           locationData: passBackLocationAndFilterFromLocation
                         })
     }
