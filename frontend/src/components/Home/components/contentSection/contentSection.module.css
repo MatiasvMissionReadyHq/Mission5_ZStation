@@ -40,3 +40,56 @@
 .btn-image:hover {
   transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
 }
+
+
+
+@media (min-width: 200px) and (max-width: 700px) {
+
+    .content-section {
+        flex-direction: column;
+        gap: 20px;
+        background-color: #ffffff;
+        
+    }
+
+
+    .content-section .content-map {
+        flex: 1;
+        min-width: 100%;
+        margin-right: 0px;
+        height: auto;
+    }
+
+    .content-section .content-map {
+        flex: 1;
+        height: 200px;
+        max-width: 40%;
+        margin-right: 5%;
+        height: auto;
+    }
+    
+    .content-section .content-text {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding-left: 0%;
+    }
+
+    .content-text h2 {
+        font-size: 45px;
+        line-height: 55px;
+    }
+
+    .content-text p{
+        
+        font-weight: 300;
+        font-size: 25px;
+        
+    }
+
+    .btn-image{
+        min-width: 80%;
+        margin-left: 10%;
+    }
+
+}    

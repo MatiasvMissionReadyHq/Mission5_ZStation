@@ -124,36 +124,47 @@ export default function StationDetail(){
             <div className={styles['fuel-main-container']}>
                 <div className={styles["station-info-container"]}>
                     <div className={styles["left-station-info"]}>
-                        <p onClick={()=>handleReturn()} className={styles["get-back-link"]}> {`< Back to find a station`}</p>
+                        
+                        {window.screen.width > 700 &&
+                            <p onClick={()=>handleReturn()} className={styles["get-back-link"]}> {`< Back to find a station`}</p>
+                        }  
                         <h2>{`${stationInfo?.name ? stationInfo.name :'Z Station'}`}</h2>
+
+                        {window.screen.width < 700 &&
+                            <p onClick={()=>handleReturn()} className={styles["get-back-link"]}> {`< Back to find a station`}</p>
+                        } 
                         <div className={styles["display-address-getDirection-container"]}>
                             <div className={styles["address-container"]}>
-                                <p style={{marginBottom:'20px'}}>{`${stationInfo?.address ? stationInfo.address + ' ' +stationInfo.city :''}`}, New Zealand</p>
+                                <p style={{ marginBottom: window.screen.width > 431 ? '20px' : '10px' }}> {`${stationInfo?.address ? stationInfo.address + ' ' +stationInfo.city :''}`}, New Zealand</p>
                                 <p>Contact Us: <span className={styles["phone-number"]}>00-0000000</span></p>
                             </div>
-                            <div className={styles["get-directionBtn-container"]}>
-                                <img src="/getdirections.png" alt="Get Directions" className={styles["station-getDirections-image"]} onClick={handleOnClick(stationInfo.latitude, stationInfo.longitude)}/>
+                            <div className={`${styles["get-directionBtn-container"]} ${styles['display']}`}>
+                                <img src="/getdirections.png" alt="Get Directions" className={`${styles["station-getDirections-image"]}`} onClick={handleOnClick(stationInfo.latitude, stationInfo.longitude)}/>
                             </div>
                         </div>
-                        <div className={styles["station-fuel-info"]}>
-                            <div className={styles["fuel-items-content"]}>
-                                <img src='/premium.png' alt="Premium" className={styles["station-fuel-logo"]}/>
-                                <p style={{alignSelf: 'center'}}>$ 2.895 / L</p>
+                        {window.screen.width > 700 &&
+                            <div className={styles["station-fuel-info"]}>
+                                <div className={styles["fuel-items-content"]}>
+                                    <img src='/premium.png' alt="Premium" className={styles["station-fuel-logo"]}/>
+                                    <p style={{alignSelf: 'center'}}>$ 2.895 / L</p>
+                                </div>
+                                <div className={styles["fuel-items-content"]}>
+                                    <img src='/unleaded.png' alt="Unleaded" className={styles["station-fuel-logo"]}/>
+                                    <p style={{alignSelf: 'center'}}>$2.746 / L</p>
+                                </div>
+                                <div className={styles["fuel-items-content"]}>
+                                    <img src='/diesel.png' alt="Diesel" className={styles["station-fuel-logo"]}/>
+                                    <p style={{alignSelf: 'center'}}>$2.346 / L</p>
+                                </div>
+                            </div> 
+                        }
+                        {window.screen.width > 700 &&
+                            <div className={styles["payment-option-container"]}>
+                                <h4>Payment</h4>
+                                <p>Pay in app</p>
+                                <p>Pay at pump</p>
                             </div>
-                            <div className={styles["fuel-items-content"]}>
-                                <img src='/unleaded.png' alt="Unleaded" className={styles["station-fuel-logo"]}/>
-                                <p style={{alignSelf: 'center'}}>$2.746 / L</p>
-                            </div>
-                            <div className={styles["fuel-items-content"]}>
-                                <img src='/diesel.png' alt="Diesel" className={styles["station-fuel-logo"]}/>
-                                <p style={{alignSelf: 'center'}}>$2.346 / L</p>
-                            </div>
-                        </div>    
-                        <div className={styles["payment-option-container"]}>
-                            <h4>Payment</h4>
-                            <p>Pay in app</p>
-                            <p>Pay at pump</p>
-                        </div>
+        }
                         <div className={styles["time-info-container"]}>
                             <h4>Station Hours:</h4>
                             {stationInfo?.openingHours?.map((hour, index) => (    
@@ -163,6 +174,22 @@ export default function StationDetail(){
                                 </div>
                             ))}
                         </div>
+                        {window.screen.width < 700 &&
+                            <div className={styles["station-fuel-info"]}>
+                                <div className={styles["fuel-items-content"]}>
+                                    <img src='/premium.png' alt="Premium" className={styles["station-fuel-logo"]}/>
+                                    <p style={{alignSelf: 'center'}}>$ 2.895 / L</p>
+                                </div>
+                                <div className={styles["fuel-items-content"]}>
+                                    <img src='/unleaded.png' alt="Unleaded" className={styles["station-fuel-logo"]}/>
+                                    <p style={{alignSelf: 'center'}}>$2.746 / L</p>
+                                </div>
+                                <div className={styles["fuel-items-content"]}>
+                                    <img src='/diesel.png' alt="Diesel" className={styles["station-fuel-logo"]}/>
+                                    <p style={{alignSelf: 'center'}}>$2.346 / L</p>
+                                </div>
+                            </div> 
+                        }
                     </div>
                     <div className={styles["right-station-info"]}>
 
@@ -186,7 +213,10 @@ export default function StationDetail(){
                 <div className={styles['service-main-container']}>
                     <div className={styles['service-left-container']}>
                         <h3>Services</h3>
-                        <img src='/findOutMoreButton.png' alt="Z Petrol Station" className={styles["find-out-more-btn"]}/>
+                        <img src='/findOutMoreButton.png' alt="Z Petrol Station" className={`${styles["find-out-more-btn"]} ${styles['display']}`}/>
+                        <div className={styles["get-directionBtn-container"]}>
+                            <img src="/getdirections.png" alt="Get Directions" className={`${styles["station-getDirections-image"]} ${styles['display-get-directions']}`} onClick={handleOnClick(stationInfo.latitude, stationInfo.longitude)}/>
+                        </div>    
                     </div>
                     <div className={styles['service-right-container']}>
 

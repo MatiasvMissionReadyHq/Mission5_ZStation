@@ -77,3 +77,37 @@
     margin: 15px 0px 20px 20px;
     cursor: pointer;
 }
+
+
+@media (min-width: 200px) and (max-width: 700px) {
+    /* Styles for viewports between 768px and 1024px wide */
+    .services-cards-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .services-cards-container .services-card {
+
+        border: none;
+
+    }
+
+    .services-section h2 {
+        margin-bottom: 40px;
+        font-size: 54px;
+    }
+    
+    .service-subtitle {
+        font-size: 20px;
+        min-width: 90%;
+        margin-left: 5%;
+        font-weight: 400;
+    }
+
+    .btn-image {
+        min-width: 80%; /* Ajusta el tamaño de las imágenes de los botones */
+        margin-bottom: 30px;
+    } 
+
+}

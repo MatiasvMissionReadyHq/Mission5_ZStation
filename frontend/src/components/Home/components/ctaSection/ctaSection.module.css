@@ -47,3 +47,39 @@
     font-weight: 700;
     cursor: pointer;
 }
+
+@media (min-width: 200px) and (max-width: 700px) {
+
+    .cta-section {
+        background: #ffffff;
+        color: #000000;
+        padding: 0px 20px;
+        height: auto;
+        flex-direction: row;
+    }
+
+    .cta-title{
+        color:#ED560E;
+    }
+    
+    .cta-section img {
+        width: 100%;
+        height: auto;
+        margin-top: -150px;
+        position: relative;
+    }
+
+    .cta-button{
+        padding: 8px 12px 8px 12px;
+        background-color: #3129AC;
+        gap: 8px;
+        border-radius: 6px;
+        border: 1px solid #3129AC;
+        color: #FFFFFF;
+        line-height: 24px;
+        font-size: 14px;
+        margin: 15px 0px 20px 20px;
+        cursor: pointer;
+    }
+
+}    
