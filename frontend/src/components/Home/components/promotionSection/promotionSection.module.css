@@ -33,7 +33,6 @@
 }
 .promotion-section .promotion-image {
     flex: 1;
-    height: 200px;
     max-width: 40%;
     margin-right: 5%;
     height: auto;
@@ -53,4 +52,23 @@
     font-size: 14px;
     margin: 35px 0px 20px 20px;
     cursor: pointer;
+}
+
+
+@media (min-width: 200px) and (max-width: 700px) {
+
+    .promotion-section{
+        flex-direction: column;
+        gap: 20px;
+        padding: 40px 00px;
+    }
+    
+
+    .promotion-section .promotion-image {
+        min-width: 95%;
+        margin-left: 2%;
+        height: auto;
+        border-radius: 0px;
+        margin-bottom: 20px;
+    }
 }

@@ -48,8 +48,15 @@ const Footer = ()=>{
                 <p>Terms of use</p>
                 <p>Fuel Safety Data Sheets</p>
                 <p>Investor Relations</p>
-                <p style={{marginLeft:'auto'}}>Z Energy Limited. all trademarks are used under license
-                <img src="./image15.png" alt="Trailer Hire" className={styles["footer-image"]}/>
+                
+                <p style={{marginLeft:'auto'}} className={styles['text-style']}>
+                    {window.screen.width < 700 &&
+                        <img src="/image15.png" alt="Icon" style={{ marginRight:'10px', marginLeft:'0px'}} className={styles["footer-image"]}/>
+                    } 
+                    Z Energy Limited. all trademarks are used under license
+                {window.screen.width > 700 &&
+                    <img src="/image15.png" alt="Icon" className={styles["footer-image"]}/>
+                } 
                 </p>
             </div>
         </footer>
